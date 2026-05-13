@@ -1,0 +1,4 @@
+# ReCode local database
+.recode
+node_modules
+dist

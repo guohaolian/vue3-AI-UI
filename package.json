@@ -1,0 +1,11 @@
+{
+  "name": "vue3-ai-ui-complete",
+  "version": "1.0.0",
+  "description": "Vue3 AI UI Component Library",
+  "scripts": {
+    "dev": "cd site && npm run dev"
+  },
+  "keywords": ["vue3", "ui", "components"],
+  "author": "",
+  "license": "MIT"
+}
