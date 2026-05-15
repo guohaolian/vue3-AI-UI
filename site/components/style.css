@@ -2,6 +2,29 @@
 .doc h1 { font-size: 28px; margin-bottom: 16px; }
 .doc .desc { font-size: 14px; color: var(--vai-text-color-secondary); margin-bottom: 24px; }
 .doc h2 { font-size: 20px; margin: 32px 0 16px; }
+.doc h3 { font-size: 16px; margin: 20px 0 12px; color: var(--vai-text-color-primary); }
+.doc p, .doc li { color: var(--vai-text-color-regular); }
+.doc ul { padding-left: 20px; }
+.doc a { color: var(--vai-color-primary); }
+.doc .note {
+  padding: 12px 16px;
+  background: var(--vai-fill-color-light);
+  border: 1px solid var(--vai-border-color-lighter);
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 12px 0 16px;
+}
+.doc .inline-code {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: var(--vai-fill-color-light);
+  border: 1px solid var(--vai-border-color-lighter);
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--vai-text-color-primary);
+}
 .demo {
   padding: 24px;
   background: #fff;
@@ -12,6 +35,20 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+.demo.demo-block { display: block; }
+.api-kv {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 16px;
+  font-size: 14px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--vai-border-color-lighter);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.api-kv .k { color: var(--vai-text-color-secondary); }
+.api-kv .v { color: var(--vai-text-color-regular); }
 .code {
   padding: 16px;
   background: #f5f7fa;
@@ -45,3 +82,13 @@
   font-weight: 600;
 }
 .table tr:last-child td { border-bottom: none; }
+
+.table td .muted { color: var(--vai-text-color-placeholder); }
+.table td .pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--vai-color-primary-light-9);
+  color: var(--vai-color-primary);
+  font-size: 12px;
+}
