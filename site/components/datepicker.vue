@@ -18,7 +18,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -88,7 +88,7 @@ export default {
   data() {
     return {
       date: '',
-      usageCode: `<vai-date-picker v-model="date" @change="handleChange" />\n<p>选择的日期：{{ date }}</p>\n\n<script>\nexport default {\n  data() {\n    return { date: '' }\n  },\n  methods: {\n    handleChange(val) {\n      console.log('change:', val)\n    }\n  }\n}\n<\/script>`
+      usageCode: `<template>\n  <vai-date-picker v-model="date" @change="handleChange" />\n  <p>选择的日期：{{ date }}</p>\n</template>\n\n<script>\nexport default {\n  data() {\n    return { date: '' }\n  },\n  methods: {\n    handleChange(val) {\n      console.log('change:', val)\n    }\n  }\n}\n<\/script>`
     }
   },
   methods: {

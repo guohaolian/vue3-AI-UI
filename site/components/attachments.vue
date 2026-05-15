@@ -23,7 +23,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -139,7 +139,7 @@ export default {
   data() {
     return {
       files: [],
-      usageCode: `<vai-attachments\n  v-model="files"\n  tip="支持多文件上传，单个文件不超过 10MB"\n  :max-count="5"\n  :max-size="10 * 1024 * 1024"\n  accept=".pdf,.doc,.docx,.png,.jpg"\n  @change="handleChange"\n/>\n\n<script>\nexport default {\n  data() {\n    return { files: [] }\n  },\n  methods: {\n    handleChange(files) {\n      console.log('change:', files)\n    }\n  }\n}\n<\/script>`
+      usageCode: `<template>\n  <vai-attachments\n    v-model="files"\n    tip="支持多文件上传，单个文件不超过 10MB"\n    :max-count="5"\n    :max-size="10 * 1024 * 1024"\n    accept=".pdf,.doc,.docx,.png,.jpg"\n    @change="handleChange"\n  />\n</template>\n\n<script>\nexport default {\n  data() {\n    return { files: [] }\n  },\n  methods: {\n    handleChange(files) {\n      console.log('change:', files)\n    }\n  }\n}\n<\/script>`
     }
   },
   methods: {

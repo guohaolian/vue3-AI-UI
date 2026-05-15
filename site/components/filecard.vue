@@ -28,7 +28,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -168,7 +168,8 @@
       </div>
       <div class="k">内部</div>
       <div class="v"><span class="inline-code">.download-btn</span> / <span class="inline-code">.close-btn</span> /
-        <span class="inline-code">.progress-fill</span> 等</div>
+        <span class="inline-code">.progress-fill</span> 等
+      </div>
     </div>
   </div>
 </template>
@@ -177,7 +178,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-file-card\n  name="项目文档.pdf"\n  size="2.5 MB"\n  time="2024-12-24"\n  icon="📄"\n  :tags="['重要']"\n  show-progress\n  :progress="68"\n  @click="handleClick"\n  @download="handleDownload"\n/>\n\n<script>\nexport default {\n  methods: {\n    handleClick() {\n      console.log('click')\n    },\n    handleDownload() {\n      console.log('download')\n    }\n  }\n}\n<\/script>`
+      usageCode: `<template>\n  <vai-file-card\n    name="项目文档.pdf"\n    size="2.5 MB"\n    time="2024-12-24"\n    icon="📄"\n    :tags="['重要']"\n    show-progress\n    :progress="68"\n    @click="handleClick"\n    @download="handleDownload"\n  />\n</template>\n\n<script>\nexport default {\n  methods: {\n    handleClick() {\n      console.log('click')\n    },\n    handleDownload() {\n      console.log('download')\n    }\n  }\n}\n<\/script>`
     }
   },
   methods: {

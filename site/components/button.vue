@@ -7,9 +7,14 @@
     <div class="note">
       本项目文档站点在 <span class="inline-code">site/main.js</span> 中通过 <span class="inline-code">app.use(VaiUI)</span>
       全局注册所有组件。
-      如果你只想注册单个组件，也可以从组件入口按需引入并注册（见下方代码）。
+      如果你只想注册单个组件，也可以从组件入口按需引入并注册（两段代码都以本仓库目录为基准）。
     </div>
-    <vai-code-highlighter :code="installCode" language="javascript" />
+
+    <h3>全量注册（站点同款）</h3>
+    <vai-code-highlighter :code="installAllCode" language="javascript " />
+
+    <h3>按需注册（单组件）</h3>
+    <vai-code-highlighter :code="installOnDemandCode" language="javascript " />
 
     <h2>基础用法</h2>
     <div class="demo">
@@ -36,7 +41,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -138,8 +143,9 @@
 export default {
   data() {
     return {
-      installCode: `// 全局注册（站点同款）\nimport { createApp } from 'vue'\nimport App from './App.vue'\nimport VaiUI from '../packages/components'\nimport '../packages/theme/index.css'\n\ncreateApp(App).use(VaiUI).mount('#app')\n\n// 按需注册（在本仓库中）\n// import { VaiButton } from '../packages/components'\n// app.component(VaiButton.name, VaiButton)`,
-      usageCode: `<vai-button>默认按钮</vai-button>\n<vai-button type="primary">主要按钮</vai-button>\n<vai-button size="large" type="success">大号成功</vai-button>\n<vai-button disabled>禁用按钮</vai-button>\n<vai-button loading>加载中</vai-button>\n\n<!-- 监听点击 -->\n<vai-button type="primary" @click="onClick">提交</vai-button>`
+      installAllCode: `// 全量注册（站点同款，适用于本仓库 site/）\nimport { createApp } from 'vue'\nimport App from './App.vue'\nimport VaiUI from '../packages/components'\nimport '../packages/theme/index.css'\n\nconst app = createApp(App)\napp.use(VaiUI)\napp.mount('#app')`,
+      installOnDemandCode: `// 按需注册（单组件，适用于本仓库 site/）\nimport { createApp } from 'vue'\nimport App from './App.vue'\nimport { VaiButton } from '../packages/components'\nimport '../packages/theme/index.css'\n\nconst app = createApp(App)\napp.component(VaiButton.name, VaiButton)\napp.mount('#app')`,
+      usageCode: `<template>\n  <vai-button>默认按钮</vai-button>\n  <vai-button type="primary">主要按钮</vai-button>\n  <vai-button size="large" type="success">大号成功</vai-button>\n  <vai-button disabled>禁用按钮</vai-button>\n  <vai-button loading>加载中</vai-button>\n\n  <!-- 监听点击（disabled/loading 时不触发） -->\n  <vai-button type="primary" @click="onClick">提交</vai-button>\n</template>\n\n<script>\nexport default {\n  methods: {\n    onClick(e) {\n      console.log('click', e)\n    }\n  }\n}\n<\/script>`
     }
   },
   methods: {

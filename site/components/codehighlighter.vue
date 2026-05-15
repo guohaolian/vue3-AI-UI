@@ -14,21 +14,21 @@
 
     <h2>JavaScript</h2>
     <div class="demo" style="display: block">
-      <vai-code-highlighter :code="jsCode" language="javascript" />
+      <vai-code-highlighter :code="jsCode" language="javascript " />
     </div>
 
     <h2>Python</h2>
     <div class="demo" style="display: block">
-      <vai-code-highlighter :code="pyCode" language="python" />
+      <vai-code-highlighter :code="pyCode" language="python " />
     </div>
 
     <h2>HTML</h2>
     <div class="demo" style="display: block">
-      <vai-code-highlighter :code="htmlCode" language="html" />
+      <vai-code-highlighter :code="$escapeHtml(htmlCode)" language="html " :show-header="false" />
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -87,10 +87,12 @@
       <div class="v"><span class="inline-code">.vai-code-highlighter</span></div>
       <div class="k">头部</div>
       <div class="v"><span class="inline-code">.code-header</span> / <span class="inline-code">.code-language</span> /
-        <span class="inline-code">.action-btn</span></div>
+        <span class="inline-code">.action-btn</span>
+      </div>
       <div class="k">内容</div>
       <div class="v"><span class="inline-code">.code-container</span> / <span class="inline-code">.line-numbers</span> /
-        <span class="inline-code">.code-content</span></div>
+        <span class="inline-code">.code-content</span>
+      </div>
     </div>
   </div>
 </template>
@@ -99,7 +101,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-code-highlighter\n  :code="code"\n  language="javascript"\n  :show-header="true"\n  :show-line-numbers="true"\n/>\n\n<script>\nexport default {\n  data() {\n    return { code: 'const answer = 42' }\n  }\n}\n<\/script>`,
+      usageCode: `<template>\n  <vai-code-highlighter\n    :code="code"\n    language="javascript"\n    :show-header="true"\n    :show-line-numbers="true"\n  />\n</template>\n\n<script>\nexport default {\n  data() {\n    return { code: 'const answer = 42' }\n  }\n}\n<\/script>`,
       jsCode: `function fibonacci(n) {
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);

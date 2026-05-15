@@ -24,7 +24,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>性能数据</h2>
     <table class="table">
@@ -145,7 +145,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-virtual-list :data="data" :height="400" :item-height="50">\n  <template #default="{ item, index }">\n    <div class="row">#{{ index + 1 }} - {{ item.name }}</div>\n  </template>\n</vai-virtual-list>\n\n<script>\nexport default {\n  data() {\n    return {\n      data: Array.from({ length: 100000 }, (_, i) => ({ id: i + 1, name: 'Item ' + (i + 1) }))\n    }\n  }\n}\n<\/script>`,
+      usageCode: `<template>\n  <vai-virtual-list :data="data" :height="400" :item-height="50">\n    <template #default="{ item, index }">\n      <div class="row">#{{ index + 1 }} - {{ item.name }}</div>\n    </template>\n  </vai-virtual-list>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      data: Array.from({ length: 100000 }, (_, i) => ({ id: i + 1, name: 'Item ' + (i + 1) }))\n    }\n  }\n}\n<\/script>`,
       data: Array.from({ length: 100000 }, (_, i) => ({
         id: i + 1,
         name: `Item ${i + 1}`,

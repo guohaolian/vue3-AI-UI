@@ -21,7 +21,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -77,7 +77,8 @@
       <div class="v"><span class="inline-code">.vai-tree</span></div>
       <div class="k">节点</div>
       <div class="v"><span class="inline-code">.tree-node</span> / <span class="inline-code">.node-content</span> /
-        <span class="inline-code">.children</span></div>
+        <span class="inline-code">.children</span>
+      </div>
       <div class="k">展开按钮</div>
       <div class="v"><span class="inline-code">.expand</span></div>
       <div class="k">文本</div>
@@ -90,7 +91,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-tree :data="data" @node-click="handleNodeClick" />\n\n<script>\nexport default {\n  data() {\n    return {\n      data: [\n        { id: 1, label: '一级节点 1', children: [\n          { id: 11, label: '二级节点 1-1' },\n          { id: 12, label: '二级节点 1-2' }\n        ] }\n      ]\n    }\n  },\n  methods: {\n    handleNodeClick(node) {\n      console.log('node-click:', node)\n    }\n  }\n}\n<\/script>`,
+      usageCode: `<template>\n  <vai-tree :data="data" @node-click="handleNodeClick" />\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      data: [\n        { id: 1, label: '一级节点 1', children: [\n          { id: 11, label: '二级节点 1-1' },\n          { id: 12, label: '二级节点 1-2' }\n        ] }\n      ]\n    }\n  },\n  methods: {\n    handleNodeClick(node) {\n      console.log('node-click:', node)\n    }\n  }\n}\n<\/script>`,
       data: [
         {
           id: 1, label: '一级节点 1', children: [

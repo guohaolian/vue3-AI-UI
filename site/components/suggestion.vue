@@ -20,7 +20,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -122,10 +122,12 @@
       <div class="v"><span class="inline-code">.vai-suggestion</span></div>
       <div class="k">列表</div>
       <div class="v"><span class="inline-code">.suggestion-list</span>（<span class="inline-code">.layout-grid</span> /
-        <span class="inline-code">.layout-list</span>）</div>
+        <span class="inline-code">.layout-list</span>）
+      </div>
       <div class="k">项</div>
       <div class="v"><span class="inline-code">.suggestion-item</span> / <span class="inline-code">.item-icon</span> /
-        <span class="inline-code">.item-title</span> / <span class="inline-code">.item-description</span></div>
+        <span class="inline-code">.item-title</span> / <span class="inline-code">.item-description</span>
+      </div>
     </div>
   </div>
 </template>
@@ -134,7 +136,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-suggestion\n  title="你可以问我："\n  :suggestions="suggestions"\n  layout="grid"\n  :show-arrow="true"\n  @select="handleSelect"\n/>\n\n<script>\nexport default {\n  data() {\n    return {\n      suggestions: [\n        { icon: '💡', title: '写一篇文章', description: '关于 AI 技术的发展' },\n        { icon: '🎨', title: '设计方案', description: '产品界面设计建议' }\n      ]\n    }\n  },\n  methods: {\n    handleSelect(item) {\n      console.log('select:', item)\n    }\n  }\n}\n<\/script>`,
+      usageCode: `<template>\n  <vai-suggestion\n    title="你可以问我："\n    :suggestions="suggestions"\n    layout="grid"\n    :show-arrow="true"\n    @select="handleSelect"\n  />\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      suggestions: [\n        { icon: '💡', title: '写一篇文章', description: '关于 AI 技术的发展' },\n        { icon: '🎨', title: '设计方案', description: '产品界面设计建议' }\n      ]\n    }\n  },\n  methods: {\n    handleSelect(item) {\n      console.log('select:', item)\n    }\n  }\n}\n<\/script>`,
       suggestions: [
         { icon: '💡', title: '写一篇文章', description: '关于 AI 技术的发展' },
         { icon: '🎨', title: '设计方案', description: '产品界面设计建议' },

@@ -25,7 +25,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -113,7 +113,8 @@
       <div class="v"><span class="inline-code">.vai-think-process</span></div>
       <div class="k">头部</div>
       <div class="v"><span class="inline-code">.think-header</span> / <span class="inline-code">.think-title</span> /
-        <span class="inline-code">.think-expand</span></div>
+        <span class="inline-code">.think-expand</span>
+      </div>
       <div class="k">步骤</div>
       <div class="v"><span class="inline-code">.think-step</span>（含 <span class="inline-code">.is-active</span> / <span
           class="inline-code">.is-done</span>）</div>
@@ -128,7 +129,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-think-process :steps="steps" />\n<vai-think-process :steps="steps" default-expanded />\n\n<script>\nexport default {\n  data() {\n    return {\n      steps: [\n        { title: '分析问题', description: '理解用户的问题意图', status: 'done', time: '0.5s' },\n        { title: '检索知识库', description: '查找相关信息和资料', status: 'done', time: '1.2s' },\n        { title: '生成回复', description: '组织语言并生成回答', status: 'active' }\n      ]\n    }\n  }\n}\n<\/script>`,
+      usageCode: `<template>\n  <vai-think-process :steps="steps" />\n  <vai-think-process :steps="steps" default-expanded />\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      steps: [\n        { title: '分析问题', description: '理解用户的问题意图', status: 'done', time: '0.5s' },\n        { title: '检索知识库', description: '查找相关信息和资料', status: 'done', time: '1.2s' },\n        { title: '生成回复', description: '组织语言并生成回答', status: 'active' }\n      ]\n    }\n  }\n}\n<\/script>`,
       steps: [
         { title: '分析问题', description: '理解用户的问题意图', status: 'done', time: '0.5s' },
         { title: '检索知识库', description: '查找相关信息和资料', status: 'done', time: '1.2s' },

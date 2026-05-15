@@ -24,7 +24,7 @@
     </ul>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -70,7 +70,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-ai-chat title="AI 助手" />`
+      usageCode: `<template>\n  <vai-ai-chat title="AI 助手" />\n</template>`
     }
   }
 }

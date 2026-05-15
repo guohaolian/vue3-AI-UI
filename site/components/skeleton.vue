@@ -27,7 +27,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -105,7 +105,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-skeleton />\n<vai-skeleton avatar :rows="4" />\n<vai-skeleton avatar avatar-shape="square" :rows="3" />\n\n<!-- 推荐：外部用 v-if 控制是否展示 -->\n<vai-skeleton v-if="loading" avatar />`
+      usageCode: `<template>\n  <div>\n    <vai-skeleton />\n    <vai-skeleton avatar :rows="4" />\n    <vai-skeleton avatar avatar-shape="square" :rows="3" />\n\n    <!-- 推荐：外部用 v-if 控制是否展示 -->\n    <vai-skeleton v-if="loading" avatar />\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return { loading: true }\n  }\n}\n<\/script>`
     }
   }
 }

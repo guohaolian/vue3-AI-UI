@@ -20,7 +20,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -110,7 +110,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-page-header title="详情页面" @back="handleBack">\n  <template #content>这是内容描述</template>\n  <template #extra>\n    <vai-button type="primary">操作</vai-button>\n  </template>\n</vai-page-header>\n\n<script>\nexport default {\n  methods: {\n    handleBack() {\n      console.log('back')\n    }\n  }\n}\n<\/script>`
+      usageCode: `<template>\n  <vai-page-header title="详情页面" @back="handleBack">\n    <template #content>这是内容描述</template>\n    <template #extra>\n      <vai-button type="primary">操作</vai-button>\n    </template>\n  </vai-page-header>\n</template>\n\n<script>\nexport default {\n  methods: {\n    handleBack() {\n      console.log('back')\n    }\n  }\n}\n<\/script>`
     }
   },
   methods: {

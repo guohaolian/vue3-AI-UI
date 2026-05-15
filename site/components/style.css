@@ -83,7 +83,7 @@
 }
 .table tr:last-child td { border-bottom: none; }
 
-.table td .muted { color: var(--vai-text-color-placeholder); }
+.table td .muted, .table td.muted { color: var(--vai-text-color-placeholder); }
 .table td .pill {
   display: inline-block;
   padding: 2px 8px;

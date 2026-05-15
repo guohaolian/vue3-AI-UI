@@ -27,7 +27,7 @@
     </div>
 
     <h2>示例代码</h2>
-    <vai-code-highlighter :code="usageCode" language="html" />
+    <vai-code-highlighter :code="$escapeHtml(usageCode)" language="html " :show-header="false" />
 
     <h2>API</h2>
     <h3>Props</h3>
@@ -85,7 +85,7 @@
 export default {
   data() {
     return {
-      usageCode: `<vai-typing-bubble />\n<vai-typing-bubble text="正在生成回复..." />\n<vai-typing-bubble type="secondary" text="处理中..." :animated="false" />`
+      usageCode: `<template>\n  <div>\n    <vai-typing-bubble />\n    <vai-typing-bubble text="正在生成回复..." />\n    <vai-typing-bubble type="secondary" text="处理中..." :animated="false" />\n  </div>\n</template>`
     }
   }
 }
