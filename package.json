@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Vue3 AI UI Component Library",
   "scripts": {
-    "dev": "cd site && npm run dev"
+    "dev": "cd site && npm run dev",
+    "build": "cd site && npm run build"
   },
   "keywords": ["vue3", "ui", "components"],
   "author": "",
